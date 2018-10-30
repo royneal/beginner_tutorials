@@ -54,7 +54,7 @@ and prints the recieved message to the console.
 you can also listen to the topic by typing:
 ```
 rostopic echo /chatter 
-``
+```
 
 # Dependencies
 
