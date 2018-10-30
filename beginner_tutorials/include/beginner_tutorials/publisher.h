@@ -15,9 +15,9 @@
 #include "std_msgs/String.h"
 
 class Publiser {
-    Publisher();
+     Publisher();
 public:
-void Publish();
+void Publish(std::string& msg);
 private: 
 ros::NodeHandle h_; 
 ros::publisher pub_;
