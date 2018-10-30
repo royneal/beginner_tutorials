@@ -12,15 +12,15 @@ code follows Google style guide and c++/11.
 in a terminal type:
 ```
 mkdir -p catkin_ws/src
-cd ~/catkin_ws
+
 ```
 ## Initialize catkin workspace
 ```
-catkin_make 
-cd src/
+cd ~/catkin_ws/src
+catkin_init_workspace
 ```
 ## Clone package
-[Download](https://github.com/royneal/beginner_tutorials.git)
+git clone https://github.com/royneal/beginner_tutorials.git
 
 ## Build Workspace
 in the same terminal:
