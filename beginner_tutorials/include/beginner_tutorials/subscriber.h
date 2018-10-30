@@ -13,10 +13,10 @@
 #include "ros/ros.h"
 #include "std_msgs/String.h"
 
-class subscriber {
-    subscriber();
+class Subscriber {
+    Subscriber();
 public:
-void subscribe();
+void Chattercallback();
 private: 
 ros::NodeHandle h_; 
 ros::subscriber sub_;
