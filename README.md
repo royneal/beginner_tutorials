@@ -1,43 +1,43 @@
 
-#beginner_tutorials
+# Beginner_tutorials
 
-##Overview
+## Overview
 
 ENPM808X ROS Publisher/Subscriber Assignment: Implement a publisher and subscriber using ROS tutorials. 
 code follows Google style guide and c++/11. 
 
-#Install and Build instructions
+# Install and Build instructions
 
-##Make catkin workspace
+## Make catkin workspace
 in a terminal type:
 ```
 mkdir -p catkin_ws/src
 cd ~/catkin_ws
 ```
-##Initialize catkin workspace
+## Initialize catkin workspace
 ```
 catkin_make 
 cd src/
 ```
-##Clone package
+## Clone package
 [Download](https://github.com/royneal/beginner_tutorials.git)
 
-##Build Workspace
+## Build Workspace
 in the same terminal:
 ```
 cd ..
 catkin_make 
 ```
-#Running the package
+# Running the package
 
-##Source the workspace
+## Source the workspace
 ```
 cd ~/catkin_ws
 source devel/setup.bash
 ```
-#Running the Code
+# Running the Code
 
-##Start ROSMaster
+## Start ROSMaster
 Open a second terminal and type the command ebelow:
 ```
 roscore
@@ -56,7 +56,7 @@ you can also listen to the topic by typing:
 rostopic echo /chatter 
 ``
 
-#Dependencies
+# Dependencies
 
 ROS Kinetic
 roscpp
