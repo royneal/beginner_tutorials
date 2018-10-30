@@ -25,7 +25,7 @@ git clone https://github.com/royneal/beginner_tutorials.git
 ## Build Workspace
 in the same terminal:
 ```
-cd ..
+cd ~/catkin_ws
 catkin_make 
 ```
 # Running the package
