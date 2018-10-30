@@ -1,3 +1,12 @@
+/**
+ * @file    main.cpp
+ * @author  Royneal Rayess
+ * @copyright MIT License (c) 2018 Royneal Rayess
+ *
+ * @brief DESCRIPTION
+ * main node program  that calls a publisher and subscirber objects.
+ *
+ */
 #include <string>
 #include "publisher.h"
 #include "subscriber.h"
@@ -7,8 +16,8 @@ int main(int argc, char **argv) {
 
     Subscriber sub_object;
     Publisher pub_object;
-    string msg = " the journey of a 1000 miles begins with one step "
-    pub_object.publish(msg);
+    const string msg = " be happy ";
+    pub_object.Publish(msg);
 
     return 0;
 }

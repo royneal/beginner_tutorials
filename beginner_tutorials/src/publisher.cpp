@@ -12,17 +12,17 @@
 
 
 Publisher::Publisher() {
-    pub_=h_.advertise<std_msgs::string>("chatter", 1000);
+    pub_=h_.advertise<std_msgs::String>("chatter", 1000);
 }
 
-Publisher::Publish(const std::string& msg) {
+void Publisher::Publish(const std::string& msg) {
     ros::Rate loop_rate(10);
-    std_msgs::string ros_msg;
+    std_msgs::String ros_msg;
 
     while (ros::ok()) {
         ros_msg.data = msg;
         pub_.publish(msg);
-        ros::spinonce();
+        ros::spinOnce();
         loop_rate.sleep();
     }
 }

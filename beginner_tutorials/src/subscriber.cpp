@@ -10,11 +10,11 @@
 
 #include "subscriber.h"
 
-Subscriber::Subscriber {
-sub_=h_.subscribe("chatter", 1000, &Subscriber::Chattercallback, this)
+Subscriber::Subscriber() {
+sub_=h_.subscribe("chatter", 1000, &Subscriber::Chattercallback, this);
 }
 
-Subscriber::Chattercallback(const std_msgs::string::ConstPtr& msg) {
-ROS_INFO_STREAM("message is: "<<msg->data<<std::endl);
+void Subscriber::Chattercallback(const std_msgs::String::ConstPtr& msg) {
+ROS_INFO_STREAM("message is: "<< msg->data<< std::endl);
 
 }
