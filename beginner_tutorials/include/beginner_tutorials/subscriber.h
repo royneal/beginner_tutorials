@@ -18,12 +18,10 @@
  */
 
 class Subscriber {
-    
-public:
-    Subscriber();
-    void Chattercallback(const std_msgs::String::ConstPtr& msg);
-private: 
-    ros::NodeHandle h_; //ros handle
-    ros::Subscriber sub_; //ros subscriber object
-
+    public:
+        Subscriber();
+        void Chattercallback(const std_msgs::String::ConstPtr& msg);
+    private:
+        ros::NodeHandle h_;  // ros handle
+        ros::Subscriber sub_;  // ros subscriber object
 };
