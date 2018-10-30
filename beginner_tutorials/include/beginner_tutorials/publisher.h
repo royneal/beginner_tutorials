@@ -14,7 +14,7 @@
 #include "ros/ros.h"
 #include "std_msgs/String.h"
 
-class Publiser {
+class Publisher {
      Publisher();
 public:
 void Publish(std::string& msg);
