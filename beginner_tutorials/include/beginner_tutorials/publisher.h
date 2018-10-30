@@ -14,10 +14,10 @@
 #include "ros/ros.h"
 #include "std_msgs/String.h"
 
-class publiser {
-    publisher();
+class Publiser {
+    Publisher();
 public:
-void publisher();
+void Publish();
 private: 
 ros::NodeHandle h_; 
 ros::publisher pub_;
