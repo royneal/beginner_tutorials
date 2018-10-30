@@ -14,13 +14,16 @@
 #include "ros/ros.h"
 #include "std_msgs/String.h"
 
+/**
+ * @brief      A class for publishing to a ros topic
+ */
 class Publisher {
      
 public:
     Publisher();
     void Publish(const std::string& msg);
 private: 
-ros::NodeHandle h_; 
-ros::Publisher pub_;
+ros::NodeHandle h_;  //ros handle
+ros::Publisher pub_; //ros publisher object
 
 };

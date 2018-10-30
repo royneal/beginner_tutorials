@@ -13,13 +13,17 @@
 #include "ros/ros.h"
 #include "std_msgs/String.h"
 
+/**
+ * @brief      A class for subscribing to a ros topic
+ */
+
 class Subscriber {
     
 public:
     Subscriber();
     void Chattercallback(const std_msgs::String::ConstPtr& msg);
 private: 
-    ros::NodeHandle h_; 
-    ros::Subscriber sub_;
+    ros::NodeHandle h_; //ros handle
+    ros::Subscriber sub_; //ros subscriber object
 
 };

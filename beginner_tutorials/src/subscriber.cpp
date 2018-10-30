@@ -10,11 +10,20 @@
 
 #include "subscriber.h"
 
+/**
+ * @brief      Default Class Constructor, subscirbes to a topic 
+ *  
+ */
 Subscriber::Subscriber() {
 sub_=h_.subscribe("chatter", 1000, &Subscriber::Chattercallback, this);
 }
 
+/**
+ * @brief      callback to process recieved messages on chatter topic 
+ * @param      msg to be processed 
+ */
 void Subscriber::Chattercallback(const std_msgs::String::ConstPtr& msg) {
-ROS_INFO_STREAM("message is: "<< msg->data<< std::endl);
+// output recieved message on console feed
+ROS_INFO_STREAM("message is: "<< msg->data<< std::endl); 
 
 }
