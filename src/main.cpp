@@ -13,9 +13,10 @@
 
 
 int main(int argc, char **argv) {
-    ros::init(argc, argv, "roys_node");
+    ros::init(argc, argv, "publisher_subscriber_node");
     ros::NodeHandle nh("~");
     int rate;
+
     if (nh.getParam("txrate",rate)){
       ROS_INFO("Got param: %d", rate);
     }

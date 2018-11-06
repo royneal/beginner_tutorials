@@ -23,8 +23,13 @@ Publisher::Publisher() {
 bool Publisher::SetRate(beginner_tutorials::message_rate::Request & req, 
                     beginner_tutorials::message_rate::Response &resp ) {
      resp.oldrate = msg_rate_;
-     msg_rate_=req.rate;
-    return true;
+     msg_rate_ = req.rate;
+     return true;
+}
+
+void Publisher::SettxRate(int& rate){
+    msg_rate_ = rate;
+
 }
 /**
  * @brief      method to publis messages on chatter topic 
