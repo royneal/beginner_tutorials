@@ -1,3 +1,4 @@
 int64 rate
+
 ---
-bool ok
+int64 oldrate

@@ -23,11 +23,11 @@ class Publisher {
     public:
         Publisher();
        static bool SetRate(beginner_tutorials::message_rate::Request & req, 
-                    beginner_tutorials::message_rate::Response &res);
+                    beginner_tutorials::message_rate::Response &resp);
         void Publish(const std::string& msg);
     private:
         ros::NodeHandle h_;  // ros handle
         ros::Publisher pub_;  // ros publisher object
         ros::ServiceServer service_; // ros service object 
-        int msg_rate_=10;
+        static int msg_rate_;
 };

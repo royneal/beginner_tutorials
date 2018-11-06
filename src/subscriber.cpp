@@ -26,3 +26,4 @@ void Subscriber::Chattercallback(const std_msgs::String::ConstPtr& msg) {
 // output recieved message on console feed
 ROS_INFO_STREAM("message is: "<< msg->data<< std::endl);
 }
+
