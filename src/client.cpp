@@ -1,12 +1,13 @@
-// "Copyright [2018] <Bharat Mathur>"
-/** @file ModifyString.cpp
-  *  @brief ModifyString.cpp is a node that serves as a client to request a
-  *ChangeString service.
-  *
-  *  @author Bharat Mathur (bharatm11)
-  *  @bug No known bugs.
-  *  @copyright GNU Public License.
-*/
+/**
+ * @file    main.cpp
+ * @author  Royneal Rayess
+ * @copyright MIT License (c) 2018 Royneal Rayess
+ *
+ * @brief DESCRIPTION
+ * this node is a client that allows changing the publishing rate of
+ * the publisher_subscriber_node in this beginner_tutorials package.
+ *
+ */
 #include <cstdlib>
 #include "beginner_tutorials/message_rate.h"
 #include "ros/ros.h"
@@ -24,7 +25,7 @@ int main(int argc, char **argv) {
   ("message_rate");
   beginner_tutorials::message_rate srv;
   srv.request.rate = std::stoi(argv[1]); 
- 
+  ROS_DEBUG_STREAM("DEBUG MESSAGE CHECK ARG VALUE:"<<srv.request.rate);
   if (client.call(srv)) {
     ROS_INFO_STREAM("Old Message Rate: "<< srv.response.oldrate);
     ROS_INFO_STREAM("New Message Rate: "<< srv.request.rate);
