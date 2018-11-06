@@ -1,9 +1,9 @@
 
-# Beginner_tutorials
+# Beginner_tutorials Week10
 
 ## Overview
 
-ENPM808X ROS Publisher/Subscriber Assignment: Implement a publisher and subscriber using ROS tutorials. 
+ENPM808X ROS Service/Launch file Assignment: Implement a service that can change the publishing rate of the previously developed publisher/subscriber tutorial. 
 code follows Google style guide and c++/11. 
 
 # Install and Build instructions
@@ -42,20 +42,38 @@ Open a second terminal and type the command ebelow:
 ```
 roscore
 ```
+## Launch Publisher and Subscriber
 in the first terminal type the following commands:
 
 ```
-rosrun beginner_tutorials beginner_tutorials_node
+cd src/beginner_tutorials/launch
+roslaunch demo.launch rate:=5
 ```
+you can set the rate to any value you like of course. 
 
 This starts the publisher and subscriber together 
-and prints the recieved message to the console.
 
-you can also listen to the topic by typing:
+## To see the messages
+since the launch file runs both publisher and subscriber in
+the same window, info messages from chatter topic have been disabled.
+
+To view the messages being broadcasted on the chatter topic, open a 
+third console and type the following command: 
 ```
 rostopic echo /chatter 
 ```
+## Run Client to Change Publishing Rate
 
+once you have started the publisher and subscriber and can visualize the 
+messages in a seperate console, start a new console and run the following 
+command to request a change in the topic publishing rate. pass the rate 
+as an argument on the command line as follows: 
+```
+cd catkin_ws/
+source devel/setup.bash
+cd src/beginner_tutorials
+rosrun client_node 20
+```
 # Dependencies
 
 ROS Kinetic
