@@ -36,6 +36,7 @@ void Publisher::Publish(const std::string& msg) {
     service_=h_.advertiseService("message_rate",& Publisher::SetRate);
 
     while (ros::ok()) {
+        ros::Rate loop_rate(msg_rate_);  // rate at which messages get published
         ros_msg.data = msg;  // pass message to be sent to ros message object
         pub_.publish(ros_msg);  // publish message to topic
         ros::spinOnce();

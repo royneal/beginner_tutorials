@@ -1,0 +1,6 @@
+<launch>
+    <node pkg="beginner_tutorials" type="publisher_subscriber_node" name="publisher_subscriber_node" output="screen"/>
+    <node pkg="beginner_tutorials" name="client_node" type="client_node" output="screen"/>
+   
+</launch>
+<launch>
