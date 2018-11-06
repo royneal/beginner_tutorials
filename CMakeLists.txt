@@ -8,12 +8,25 @@ add_compile_options(-std=c++11)
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
+  message_generation
   roscpp
   rospy
   std_msgs
 )
 
+ add_service_files(
+   FILES
+   message_rate.srv
+
+ )
+
+generate_messages(DEPENDENCIES
+  std_msgs
+)
+
 catkin_package(
+  CATKIN_DEPENDS
+  message_runtime
 #  INCLUDE_DIRS include
 #  LIBRARIES beginner_tutorials
 #  CATKIN_DEPENDS roscpp rospy std_msgs
@@ -35,3 +48,6 @@ add_executable(${PROJECT_NAME}_node src/main.cpp src/publisher.cpp src/subscribe
 target_link_libraries(${PROJECT_NAME}_node
   ${catkin_LIBRARIES}
 )
+
+
+
