@@ -17,10 +17,9 @@ int main(int argc, char **argv) {
     ros::NodeHandle nh("~");
     int rate;
 
-    if (nh.getParam("txrate",rate)){
+    if (nh.getParam("txrate", rate)) {
       ROS_INFO("Got param: %d", rate);
-    }
-    else{
+    } else {
       ROS_WARN("Failed to get param 'txrate' setting to Default = 1");
     }
 
@@ -28,7 +27,7 @@ int main(int argc, char **argv) {
     pub_object.SettxRate(rate);
     Subscriber sub_object;  // create a subscriber object
 
-    std::string msg = " +++++++++++++++++++++ B happy +++++++++++++++++++++ ";  // message to publish
+    std::string msg = " +++++ B happy +++++ ";  // message to publish
     pub_object.Publish(msg);  // publish message
 
     return 0;
