@@ -21,7 +21,7 @@ class Subscriber {
     public:
         Subscriber();
         void Chattercallback(const std_msgs::String::ConstPtr& msg);
-        void ServiceRequest(beginner_tutorials::message_rate::Request & req, 
+        void ServiceRequest(beginner_tutorials::message_rate::Request & req,
                     beginner_tutorials::message_rate::Response &res);
     private:
         ros::NodeHandle h_;  // ros handle
