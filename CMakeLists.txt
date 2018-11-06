@@ -51,4 +51,13 @@ target_link_libraries(${PROJECT_NAME}_node
 )
 
 
+add_executable(client_node src/client.cpp)
+target_link_libraries(client_node 
+${catkin_LIBRARIES}
+)
+
+
+
+
+
 
