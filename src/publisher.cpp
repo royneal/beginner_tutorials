@@ -9,7 +9,7 @@
  */
 #include <string>
 #include "beginner_tutorials/publisher.h"
-
+#include "beginner_tutorials/message_rate.h"
 /**
  * @brief      default class constructor, advertises the chatter topic
  */
@@ -17,6 +17,14 @@ Publisher::Publisher() {
     pub_ = h_.advertise<std_msgs::String>("chatter", 1000);
 }
 
+bool Publisher::SetRate(beginner_tutorials::message_rate::Request & req, 
+                    beginner_tutorials::message_rate::Response &res) {
+
+  msg_rate_=req.rate;
+   res.ok =true;
+
+                        return true;
+}
 /**
  * @brief      method to publis messages on chatter topic 
  * @param      msg string to be published on topic 
@@ -24,6 +32,7 @@ Publisher::Publisher() {
 void Publisher::Publish(const std::string& msg) {
     ros::Rate loop_rate(10);  // rate at which messages get published
     std_msgs::String ros_msg;  // standard ros message type string
+    service_=h_.advertiseService("message_rate",& Publisher::SetRate);
 
     while (ros::ok()) {
         ros_msg.data = msg;  // pass message to be sent to ros message object
