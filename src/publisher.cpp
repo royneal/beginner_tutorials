@@ -11,7 +11,7 @@
 #include "beginner_tutorials/publisher.h"
 #include "beginner_tutorials/message_rate.h"
 
- int Publisher::msg_rate_=10;
+ int Publisher::msg_rate_=1;
  
 /**
  * @brief      default class constructor, advertises the chatter topic

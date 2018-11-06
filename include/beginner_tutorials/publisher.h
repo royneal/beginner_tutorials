@@ -24,7 +24,7 @@ class Publisher {
         Publisher();
        static bool SetRate(beginner_tutorials::message_rate::Request & req, 
                     beginner_tutorials::message_rate::Response &resp);
-       void SettxRate(int& rate);
+        void SettxRate(int& rate);
         void Publish(const std::string& msg);
     private:
         ros::NodeHandle h_;  // ros handle

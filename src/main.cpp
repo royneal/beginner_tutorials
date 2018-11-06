@@ -21,13 +21,14 @@ int main(int argc, char **argv) {
       ROS_INFO("Got param: %d", rate);
     }
     else{
-      ROS_ERROR("Failed to get param 'txrate'");
+      ROS_WARN("Failed to get param 'txrate' setting to Default = 1");
     }
 
     Publisher pub_object;  // create a publisher object
+    pub_object.SettxRate(rate);
     Subscriber sub_object;  // create a subscriber object
 
-    std::string msg = " be happy ";  // message to publish
+    std::string msg = " +++++++++++++++++++++ B happy +++++++++++++++++++++ ";  // message to publish
     pub_object.Publish(msg);  // publish message
 
     return 0;
