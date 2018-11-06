@@ -20,6 +20,11 @@ Publisher::Publisher() {
     pub_ = h_.advertise<std_msgs::String>("chatter", 1000);
 }
 
+/**
+ * @brief      Service call back function, loads new publising rate
+ * @param      req holds service request 
+ * @param      resp holds service response 
+ */
 bool Publisher::SetRate(beginner_tutorials::message_rate::Request & req, 
                     beginner_tutorials::message_rate::Response &resp ) {
      resp.oldrate = msg_rate_;
@@ -27,10 +32,16 @@ bool Publisher::SetRate(beginner_tutorials::message_rate::Request & req,
      return true;
 }
 
+/**
+ * @brief      method to set private member msg_rate_ to new rate
+ * @param      rate holds new publishing rate requested by client
+ *  
+ */
 void Publisher::SettxRate(int& rate){
     msg_rate_ = rate;
 
 }
+
 /**
  * @brief      method to publis messages on chatter topic 
  * @param      msg string to be published on topic 
