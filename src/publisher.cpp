@@ -12,7 +12,7 @@
 #include "beginner_tutorials/message_rate.h"
 
  int Publisher::msg_rate_=10;
-
+ 
 /**
  * @brief      default class constructor, advertises the chatter topic
  */
@@ -31,6 +31,8 @@ bool Publisher::SetRate(beginner_tutorials::message_rate::Request & req,
  * @param      msg string to be published on topic 
  */
 void Publisher::Publish(const std::string& msg) {
+
+    
     ros::Rate loop_rate(msg_rate_);  // rate at which messages get published
     std_msgs::String ros_msg;  // standard ros message type string
     service_=h_.advertiseService("message_rate",& Publisher::SetRate);

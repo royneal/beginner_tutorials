@@ -14,6 +14,14 @@
 
 int main(int argc, char **argv) {
     ros::init(argc, argv, "roys_node");
+    ros::NodeHandle nh("~");
+    int rate;
+    if (nh.getParam("txrate",rate)){
+      ROS_INFO("Got param: %d", rate);
+    }
+    else{
+      ROS_ERROR("Failed to get param 'txrate'");
+    }
 
     Publisher pub_object;  // create a publisher object
     Subscriber sub_object;  // create a subscriber object

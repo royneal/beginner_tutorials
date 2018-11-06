@@ -23,7 +23,7 @@ int main(int argc, char **argv) {
   ros::ServiceClient client = nh.serviceClient<beginner_tutorials::message_rate>
   ("message_rate");
   beginner_tutorials::message_rate srv;
-  srv.request.rate = 15;
+  srv.request.rate = 15; 
  
   if (client.call(srv)) {
     ROS_INFO_STREAM("Old Message Rate: "<< srv.response.oldrate);
