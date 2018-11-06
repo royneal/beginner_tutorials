@@ -20,7 +20,7 @@ cd ~/catkin_ws/src
 catkin_init_workspace
 ```
 ## Clone package
-git clone https://github.com/royneal/beginner_tutorials.git
+git clone -b Week10_HW https://github.com/royneal/beginner_tutorials.git
 
 ## Build Workspace
 in the same terminal:
