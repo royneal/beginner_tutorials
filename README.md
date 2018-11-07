@@ -72,7 +72,7 @@ as an argument on the command line as follows:
 cd catkin_ws/
 source devel/setup.bash
 cd src/beginner_tutorials
-rosrun client_node 20
+rosrun beginner_tutorials client_node 20
 ```
 # Dependencies
 
