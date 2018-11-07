@@ -23,11 +23,28 @@ catkin_init_workspace
 git clone -b Week10_HW https://github.com/royneal/beginner_tutorials.git
 
 ## Build Workspace
+first run will fail ! 
 in the same terminal:
 ```
 cd ~/catkin_ws
 catkin_make 
 ```
+once the devel folder has been added to your workspace 
+go to 
+```
+.../catkin_ws/src/beginner_tutorials/include/dev_inc/
+```
+and copy all three header files 
+``` 
+message_rate.h
+ressage_rateRequest.h
+message_rateResponse.h
+```
+and paste them into your devel folder 
+```
+ .../catkin_ws/devel/include/beginner_tutorials/
+```
+
 # Running the package
 
 ## Source the workspace
