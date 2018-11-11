@@ -8,12 +8,25 @@ add_compile_options(-std=c++11)
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
+  message_generation
   roscpp
   rospy
   std_msgs
 )
 
+ add_service_files(
+   FILES
+   message_rate.srv
+
+ )
+
+generate_messages(DEPENDENCIES
+  std_msgs
+)
+
 catkin_package(
+  CATKIN_DEPENDS
+  message_runtime
 #  INCLUDE_DIRS include
 #  LIBRARIES beginner_tutorials
 #  CATKIN_DEPENDS roscpp rospy std_msgs
@@ -22,6 +35,7 @@ catkin_package(
 
 
 include_directories(
+  include ${catkin_INCLUDE_DIRS}
   include
   ${catkin_INCLUDE_DIRS}
 )
@@ -29,9 +43,21 @@ include_directories(
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
-add_executable(${PROJECT_NAME}_node src/main.cpp src/publisher.cpp src/subscriber.cpp)
+add_executable(publisher_subscriber_node src/main.cpp src/publisher.cpp src/subscriber.cpp)
 
 ## Specify libraries to link a library or executable target against
-target_link_libraries(${PROJECT_NAME}_node
+target_link_libraries(publisher_subscriber_node
   ${catkin_LIBRARIES}
 )
+
+
+add_executable(client_node src/client.cpp)
+target_link_libraries(client_node 
+${catkin_LIBRARIES}
+)
+
+
+
+
+
+

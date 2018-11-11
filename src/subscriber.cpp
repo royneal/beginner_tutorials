@@ -24,5 +24,6 @@ sub_ = h_.subscribe("chatter", 1000, &Subscriber::Chattercallback, this);
  */
 void Subscriber::Chattercallback(const std_msgs::String::ConstPtr& msg) {
 // output recieved message on console feed
-ROS_INFO_STREAM("message is: "<< msg->data<< std::endl);
+// ROS_INFO_STREAM("message is: "<< msg->data<< std::endl);
 }
+
