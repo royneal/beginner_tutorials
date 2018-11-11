@@ -57,7 +57,7 @@ void Publisher::Publish(const std::string& msg) {
         ros::Rate loop_rate(msg_rate_);  // rate at which messages get published
         ros_msg.data = msg;  // pass message to be sent to ros message object
         pub_.publish(ros_msg);  // publish message to topic
-        br_.sendTransform(tf::StampedTransform(transform_, ros::Time::now(), "world", "carrot1"));
+        br_.sendTransform(tf::StampedTransform(transform_, ros::Time::now(), "world", "talk"));
        
         ros::spinOnce();
         loop_rate.sleep();
