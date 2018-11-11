@@ -10,6 +10,7 @@
 #include <string>
 #include "beginner_tutorials/publisher.h"
 #include "beginner_tutorials/message_rate.h"
+#include <tf/transform_broadcaster.h>
 
 int Publisher::msg_rate_ = 1;
 /**
@@ -17,6 +18,9 @@ int Publisher::msg_rate_ = 1;
  */
 Publisher::Publisher() {
     pub_ = h_.advertise<std_msgs::String>("chatter", 1000);
+    transform_.setOrigin( tf::Vector3(0.0, 2.0, 0.0) );
+    transform_.setRotation( tf::Quaternion(0, 0, 0, 1) );
+
 }
 
 /**
@@ -48,11 +52,13 @@ void Publisher::Publish(const std::string& msg) {
     ros::Rate loop_rate(msg_rate_);  // rate at which messages get published
     std_msgs::String ros_msg;  // standard ros message type string
     service_ = h_.advertiseService("message_rate", & Publisher::SetRate);
-
+    
     while (ros::ok()) {
         ros::Rate loop_rate(msg_rate_);  // rate at which messages get published
         ros_msg.data = msg;  // pass message to be sent to ros message object
         pub_.publish(ros_msg);  // publish message to topic
+        br_.sendTransform(tf::StampedTransform(transform_, ros::Time::now(), "world", "carrot1"));
+       
         ros::spinOnce();
         loop_rate.sleep();
     }
