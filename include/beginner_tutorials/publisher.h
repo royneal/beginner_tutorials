@@ -14,7 +14,7 @@
 #include "ros/ros.h"
 #include "std_msgs/String.h"
 #include "beginner_tutorials/message_rate.h"
-
+#include <tf/transform_broadcaster.h>
 
 /**
  * @brief      A class for publishing to a ros topic
@@ -31,4 +31,6 @@ class Publisher {
         ros::Publisher pub_;  // ros publisher object
         ros::ServiceServer service_;  // ros service object
         static int msg_rate_;
+        tf::TransformBroadcaster br_;
+        tf::Transform transform_;
 };
