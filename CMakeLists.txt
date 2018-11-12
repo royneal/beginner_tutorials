@@ -15,6 +15,8 @@ find_package(catkin REQUIRED COMPONENTS
   tf
 )
 
+
+
  add_service_files(
    FILES
    message_rate.srv
@@ -55,6 +57,18 @@ target_link_libraries(publisher_subscriber_node
 add_executable(client_node src/client.cpp)
 target_link_libraries(client_node 
 ${catkin_LIBRARIES}
+
+# create a gtest executable with target name "test_mynode"
+# which is not built by "make all" but only by "make tests"
+# add one/multiple source files to the executable target
+# register the rostest launch file "test/mynode.test"
+#add_rostest_gtest(tests_mynode test/mynode.test src/test/test_mynode.cpp [more cpp files])
+if (CATKIN_ENABLE_TESTING)
+find_package(rostest REQUIRED)
+add_rostest_gtest(mypackagetest launch/demo.launch test/my_packg_test.cpp)
+target_link_libraries(mypackagetest ${catkin_LIBRARIES})
+endif()
+
 )
 
 
