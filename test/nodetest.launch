@@ -3,7 +3,7 @@
     <node pkg="beginner_tutorials" type="publisher_subscriber_node" name="publisher_subscriber_node" output="screen">
     <param name="txrate" value="$(arg rate)"/>
     </node>
-    <test test-name="mypackagetest" pkg="beginner_tutorial" type="mypackagetest" />
+    <test test-name="mypackagetest" pkg="beginner_tutorials" type="mypackagetest" />
   <!--  <node pkg="beginner_tutorials" name="client_node" type="client_node"/>-->
     
 </launch>
