@@ -68,6 +68,12 @@ if (CATKIN_ENABLE_TESTING)
 find_package(rostest REQUIRED)
 add_rostest_gtest(mypackagetest test/nodetest.launch test/my_packg_test.cpp)
 target_link_libraries(mypackagetest ${catkin_LIBRARIES})
+add_dependencies(
+  mypackagetest
+  publisher_subscriber_node
+  ${PROJECT_NAME}_generate_messages_cpp
+  ${catkin_EXPORTED_TARGETS}
+  )
 endif()
 
 
