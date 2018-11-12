@@ -9,12 +9,16 @@
 TEST(TestSuite, testCase1)
 {
   ros::NodeHandle nh;
-  ros::service client = nh.serviceClient<beginner_tutorials::message_rate>
+  if(ros::service::waitForService ("message_rate", 1000))
+    ROS_INFO("Service message_rate started successfully");
+    else ROS_INFO("Service Wait timed out ");
+  ros::ServiceClient client = nh.serviceClient<beginner_tutorials::message_rate>
   ("message_rate");  // register service client
   beginner_tutorials::message_rate srv;  // create a service object
   srv.request.rate = 50;  // set service request value
-  int resp=50;
   client.call(srv);
+  int resp=50;
+  
   EXPECT_EQ(1, srv.response.oldrate); // service responds with old rate which is 1 hz
 
 }
