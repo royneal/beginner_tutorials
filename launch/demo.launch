@@ -12,7 +12,4 @@
        args="record  /chatter" output="screen"
        if="$(arg record_chatter)" />
 
-  <!--  <node pkg="beginner_tutorials" name="client_node" type="client_node"/>-->
-    <arg name="topics_name" default="joint_states /usb_cam/left/image_raw"/>
-
 </launch>
