@@ -3,10 +3,30 @@
  * @author  Royneal Rayess
  * @copyright MIT License (c) 2018 Royneal Rayess
  *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ *
  * @brief DESCRIPTION
- * Class implementation for demonstrating publishing a topic in ROS.
+ * this node is a client that allows changing the publishing rate of
+ * the publisher_subscriber_node in this beginner_tutorials package.
  *
  */
+
 #include <string>
 #include "tf/transform_broadcaster.h"
 #include "beginner_tutorials/publisher.h"
@@ -27,6 +47,7 @@ Publisher::Publisher() {
  * @brief      Service call back function, loads new publising rate
  * @param      req holds service request
  * @param      resp holds service response
+ * @return     returns true when method executes
  */
 bool Publisher::SetRate(beginner_tutorials::message_rate::Request & req,
                     beginner_tutorials::message_rate::Response &resp ) {
