@@ -16,7 +16,7 @@ int main(int argc, char **argv) {
     ros::init(argc, argv, "publisher_subscriber_node");
     ros::NodeHandle nh("~");
     int rate;
-    int stat=0;
+    int stat = 0;
     nh.getParam("txstat", stat);
     if (nh.getParam("txrate", rate)) {
       ROS_INFO("Publishing rate set to: %d", rate);
@@ -29,14 +29,13 @@ int main(int argc, char **argv) {
     Subscriber sub_object;  // create a subscriber object
 
     std::string msg = " +++++ B happy +++++ ";  // message to publish
-    
-    if( stat == 1) {
+
+    if (stat == 1) {
       ROS_INFO("Publisher is enabled");
       pub_object.Publish(msg);  // publish message
+    } else {
+      ROS_WARN_STREAM("stat = " << stat);
+      ROS_WARN("Publisher is disabled");
     }
-    else
-    ROS_WARN_STREAM("stat = "<<stat);
-    ROS_WARN("Publisher is disabled");
-
     return 0;
 }
