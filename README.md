@@ -103,7 +103,7 @@ in a new terminal launch the publisher_subscriber_node
 ```
 cd ~/catkin_ws
 source devel/setup.bash
-roslaunch beginner_tutorials demo.launch rate:=5
+roslaunch beginner_tutorials demo.launch rate:=1
 ```
 in a second window run the following command to see the transform
 ```
@@ -115,12 +115,39 @@ in a new termianl.
 rosrun rqt_tf_tree rqt_tf_tree
 ```
 ## RosTest
+to run rostest use the commands below:
 ```
 cd ~/catkin_ws
 source devel/setup.bash
 catkin_make run_tests
 ```
-## Rosbag
+one test should run and pass if node is launched with rate:=1 which by default it should.
+The test examins the service call response, which returns the original publishing rate after 
+a service call has changed it. 
+
+## RosBag
+to log data broadcasted by /chatter topic , launch the publisher node with the following 
+input paramters. Rosbag is disabled by default when no arguments are passed with roslaunch.
+
+### To Record 
+in a new terminal enter the following commands: 
+```
+cd ~/catkin_ws
+source devel/setup.bash
+roslaunch beginner_tutorials demo.launch broadcast:=1 rate:=2 record_chatter:=1
+```
+### To play Back 
+we first have to launch our node with rosbag recording disabled, and publisher broacasting disabled. 
+in a new terminal enter the following commands: 
+```
+cd ~/catkin_ws
+source devel/setup.bash
+roslaunch beginner_tutorials demo.launch broadcast:=0 rate:=2 record_chatter:=0
+```
+in a second terminal enter (file name is for demonstration only): 
+```
+rosbag play ../.ros/2018-11-12-20-29-11.bag
+```
 
 # Dependencies
 
