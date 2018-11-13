@@ -39,8 +39,7 @@ catkin_package(
 
 include_directories(
   include ${catkin_INCLUDE_DIRS}
-  include
-  ${catkin_INCLUDE_DIRS}
+
 )
 
 ## Declare a C++ executable
@@ -58,6 +57,14 @@ add_executable(client_node src/client.cpp)
 target_link_libraries(client_node 
 ${catkin_LIBRARIES}
 )
+
+install(DIRECTORY include/${PROJECT_NAME}/
+  DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
+  PATTERN ".svn" EXCLUDE
+)
+#  add_executable(message_rate src/publisher.cpp)
+#  target_link_libraries(message_rate ${catkin_LIBRARIES})
+#  add_dependencies(message_rate  beginner_tutorials_generate_messages_cpp)
 
 # create a gtest executable with target name "test_mynode"
 # which is not built by "make all" but only by "make tests"
