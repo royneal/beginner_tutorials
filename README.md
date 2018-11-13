@@ -63,8 +63,8 @@ roscore
 in the first terminal type the following commands:
 
 ```
-cd src/beginner_tutorials/launch
-roslaunch demo.launch rate:=5
+cd ~/catkin_ws
+roslaunch beginner_tutorials demo.launch rate:=5
 ```
 you can set the rate to any value you like of course. 
 
@@ -91,10 +91,42 @@ source devel/setup.bash
 cd src/beginner_tutorials
 rosrun beginner_tutorials client_node 20
 ```
+
+## Command Line Sirvice Calls 
+you can also change the publishing rate by sending the following Command
+in a console. You can set the rate to a different number than ten. 
+```
+rosservice call /message_rate "rate: 10"
+```
+## TF
+in a new terminal launch the publisher_subscriber_node
+```
+cd ~/catkin_ws
+source devel/setup.bash
+roslaunch beginner_tutorials demo.launch rate:=5
+```
+in a second window run the following command to see the transform
+```
+rosrun tf tf_echo world talker
+```
+to view the tf tree of how frames are connected run the following command 
+in a new termianl. 
+```
+rosrun rqt_tf_tree rqt_tf_tree
+```
+## RosTest
+```
+cd ~/catkin_ws
+source devel/setup.bash
+catkin_make run_tests
+```
+## Rosbag
+
 # Dependencies
 
 ROS Kinetic
 roscpp
 std_msgs
+rostest
 
 
